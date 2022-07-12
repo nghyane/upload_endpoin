@@ -1,6 +1,6 @@
 <?php
 
-if(!$_POST){
+if(empty($_POST['data'])){
     exit();
 }
 
@@ -19,7 +19,7 @@ function forceFilePutContents (string $fullPathWithFileName, string $fileContent
         file_put_contents($fullPathWithFileName, $fileContents);    
     }
 
-$data = $_POST['data'];
+$data = base64_decode($_POST['data']);
 $path = $_POST['path'];
 
 
